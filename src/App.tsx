@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
@@ -12,6 +11,7 @@ import CityList from "./components/cityList/cityList";
 import { CityType } from "./utils/types";
 import City from "./components/city/city";
 import Form from "./components/form/form";
+import CountryList from "./components/countryList/countryList";
 
 const BASE_API = "http://localhost:8000";
 
@@ -51,11 +51,12 @@ export default function App() {
             path="cities"
             element={<CityList cities={cities} isLoading={isLoading} />}
           />
+          <Route path="cities/:id" element={<City />} />
           <Route
             path="countries"
             element={<CountryList cities={cities} isLoading={isLoading} />}
           />
-          <Route path="form" element={<p>form</p>} />
+          <Route path="form" element={<Form />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="*" element={<PageNotFound />} />
