@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Homepage from "./pages/Homepage";
 import Prices from "./pages/Pricing";
-import Product from "./pages/Product";
-import PageNotFound from "./pages/PageNotFound";
-import AppLayout from "./pages/AppLayout";
+import Product from "./pages/product";
+import PageNotFound from "./pages/pageNotFound";
+import AppLayout from "./pages/appLayout";
 import Login from "./pages/Login";
 import CityList from "./components/cityList/cityList";
-import { City } from "./utils/types";
-import CountryList from "./components/countryList/countryList";
+import { CityType } from "./utils/types";
+import City from "./components/city/city";
+import Form from "./components/form/form";
 
 const BASE_API = "http://localhost:8000";
 
 export default function App() {
-  const [cities, setCities] = useState<City[]>([]);
+  const [cities, setCities] = useState<CityType[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {
