@@ -3,7 +3,7 @@ type Position = {
   lng: number;
 };
 
-export type City = {
+export type CityType = {
   cityName: string;
   country: string;
   date: Date;
