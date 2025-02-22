@@ -12,3 +12,8 @@ export type City = {
   notes: string;
   position: Position;
 };
+
+export type Country = {
+  country: string;
+  emoji: string;
+}
