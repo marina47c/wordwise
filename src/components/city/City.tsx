@@ -1,71 +1,80 @@
-// import styles from "./city.module.css";
+import { useEffect } from "react";
+import { useCities } from "../../contexts/citiesContext";
+import { useNavigate, useParams } from "react-router-dom";
 
-import { useParams, useSearchParams } from "react-router-dom";
+import styles from "./city.module.css";
+import Spinner from "../spinner/Spinner";
+import Button from "../buttons/button/button";
+import BackButton from "../buttons/backButton/backButton";
+// import { useParams, useSearchParams } from "react-router-dom";
 
-// const formatDate = (date: string) =>
-//   new Intl.DateTimeFormat("en", {
-//     day: "numeric",
-//     month: "long",
-//     year: "numeric",
-//     weekday: "long",
-//   }).format(new Date(date));
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat("en", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    weekday: "long",
+  }).format(new Date(date));
 
 function City() {
+  const { currentCity, getCity, isLoading } = useCities();
   const { id } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
+  const navigate = useNavigate();
 
-  // TEMP DATA
-  // const currentCity = {
-  //   cityName: "Lisbon",
-  //   emoji: "🇵🇹",
-  //   date: "2027-10-31T15:59:59.138Z",
-  //   notes: "My favorite city so far!",
-  // };
+  useEffect(() => {
+    if (!id) return;
+    getCity(id);
+  }, [id]);
 
-  // const { cityName, emoji, date, notes } = currentCity;
+  if (isLoading) return <Spinner />;
+
+  if (!currentCity) return null;
+  const { cityName, emoji, notes, date } = currentCity;
+
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const lat = searchParams.get("lat");
+  // const lng = searchParams.get("lng");
+
+  function handleBackClick() {
+    navigate(-1);
+  }
 
   return (
-    <>
-      <h1>city {id}</h1>
-      <p>
-        Position: {lng}, {lat}
-      </p>
-    </>
-    // <div className={styles.city}>
-    //   <div className={styles.row}>
-    //     <h6>City name</h6>
-    //     <h3>
-    //       <span>{emoji}</span> {cityName}
-    //     </h3>
-    //   </div>
+    <div className={styles.city}>
+      <div className={styles.row}>
+        <h6>City name</h6>
+        <h3>
+          <span>{emoji}</span> {cityName}
+        </h3>
+      </div>
 
-    //   <div className={styles.row}>
-    //     <h6>You went to {cityName} on</h6>
-    //     <p>{formatDate(date)}</p>
-    //   </div>
+      <div className={styles.row}>
+        <h6>You went to {cityName} on</h6>
+        <p>{formatDate(date)}</p>
+      </div>
 
-    //   {notes && (
-    //     <div className={styles.row}>
-    //       <h6>Your notes</h6>
-    //       <p>{notes}</p>
-    //     </div>
-    //   )}
+      {notes && (
+        <div className={styles.row}>
+          <h6>Your notes</h6>
+          <p>{notes}</p>
+        </div>
+      )}
 
-    //   <div className={styles.row}>
-    //     <h6>Learn more</h6>
-    //     <a
-    //       href={`https://en.wikipedia.org/wiki/${cityName}`}
-    //       target="_blank"
-    //       rel="noreferrer"
-    //     >
-    //       Check out {cityName} on Wikipedia &rarr;
-    //     </a>
-    //   </div>
+      <div className={styles.row}>
+        <h6>Learn more</h6>
+        <a
+          href={`https://en.wikipedia.org/wiki/${cityName}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          Check out {cityName} on Wikipedia &rarr;
+        </a>
+      </div>
 
-    //   <div></div>
-    // </div>
+      <div>
+        <BackButton />
+      </div>
+    </div>
   );
 }
 

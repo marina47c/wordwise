@@ -12,6 +12,8 @@ const BASE_API = "http://localhost:8000";
 interface CityContextType {
   cities: CityType[];
   isLoading: boolean;
+  currentCity: CityType | null;
+  getCity: (id: string) => void;
 }
 
 interface CitiesProviderProps {
@@ -21,15 +23,27 @@ interface CitiesProviderProps {
 const CitiesContext = createContext<CityContextType>({
   cities: [],
   isLoading: false,
+  currentCity: null,
+  getCity: () => {},
 });
 
 function CitiesProvider({ children }: CitiesProviderProps) {
   const [cities, setCities] = useState<CityType[]>([]);
+  const [currentCity, setCurrentCity] = useState<CityType | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  useEffect(() => {
-    getCities();
-  }, []);
+  async function getCity(id: string) {
+    try {
+      setIsLoading(true);
+      const result = await fetch(`${BASE_API}/cities/${id}`);
+      const data = await result.json();
+      setCurrentCity(data);
+    } catch (ex) {
+      console.log(`Error while fetching data. ${ex}`);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   async function getCities() {
     try {
@@ -44,8 +58,12 @@ function CitiesProvider({ children }: CitiesProviderProps) {
     }
   }
 
+  useEffect(() => {
+    getCities();
+  }, []);
+
   return (
-    <CitiesContext.Provider value={{ cities, isLoading }}>
+    <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity }}>
       {children}
     </CitiesContext.Provider>
   );
