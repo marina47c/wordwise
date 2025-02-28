@@ -1,20 +1,16 @@
-import { City, Country } from "../../utils/types";
+import { useCities } from "../../contexts/citiesContext";
+import { Country } from "../../utils/types";
 import CountryItem from "../countryItem/countryItem";
 import Message from "../message/Message";
 import Spinner from "../spinner/Spinner";
 import styles from "./countryList.module.css";
 
-interface CuntryListProps {
-  cities: City[];
-  isLoading: boolean;
-}
+function CountryList() {
+  const { cities, isLoading } = useCities();
 
-function CountryList(props: CuntryListProps) {
-  const { cities, isLoading } = props;
-
-  const countries: Country[] = cities.reduce((array: Country[], city: City) => {
+  const countries: Country[] = cities.reduce((array: Country[], city) => {
     const countries: string[] = array.map((country) => country.country);
-    
+
     return countries.includes(city.country)
       ? array
       : [...array, { country: city.country, emoji: city.emoji }];
