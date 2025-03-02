@@ -1,4 +1,4 @@
-type Position = {
+export type PositionType = {
   lat: number;
   lng: number;
 };
@@ -10,10 +10,10 @@ export type CityType = {
   emoji: string;
   id: string;
   notes: string;
-  position: Position;
+  position: PositionType;
 };
 
 export type Country = {
   country: string;
   emoji: string;
-}
+};
