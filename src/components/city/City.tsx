@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import styles from "./city.module.css";
 import Spinner from "../spinner/Spinner";
-import Button from "../buttons/button/button";
 import BackButton from "../buttons/backButton/backButton";
 // import { useParams, useSearchParams } from "react-router-dom";
 
