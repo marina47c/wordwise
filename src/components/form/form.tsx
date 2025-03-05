@@ -1,11 +1,12 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
-import { useState, MouseEvent } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "./form.module.css";
 import Button from "../buttons/button/button";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../buttons/backButton/backButton";
+import { useUrlLocation } from "../../hooks/useUrlPosition";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -15,18 +16,40 @@ export function convertToEmoji(countryCode) {
   return String.fromCodePoint(...codePoints);
 }
 
-function Form() {
-  const navigate = useNavigate();
+const URL: string = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
-  const [cityName, setCityName] = useState("");
-  const [country, setCountry] = useState("");
-  const [date, setDate] = useState(new Date());
+function Form() {
+  const [lat, lng] = useUrlLocation();
+
+  const [date, setDate] = useState<Date>(new Date());
   const [notes, setNotes] = useState("");
 
-  function handleBackClick(event: MouseEvent) {
-    event?.preventDefault();
-    navigate(-1);
-  }
+  const [isLoadingGeolocation, setIsLoadingGeolocation] =
+    useState<boolean>(false);
+  const [cityName, setCityName] = useState<string>("");
+  const [country, setCountry] = useState("");
+
+  useEffect(
+    function () {
+      async function fetchCityData() {
+        try {
+          setIsLoadingGeolocation(true);
+          const res = await fetch(`${URL}?latitude=${lat}&longitude=${lng}`);
+          const data = await res.json();
+          console.log(data);
+          setCityName(data.city || data.locality || "");
+          setCountry(data.countryName || "");
+        } catch (err) {
+          console.log(err);
+        } finally {
+          setIsLoadingGeolocation(false);
+        }
+      }
+
+      fetchCityData();
+    },
+    [lat, lng]
+  );
 
   return (
     <form className={styles.form}>
@@ -44,8 +67,8 @@ function Form() {
         <label htmlFor="date">When did you go to {cityName}?</label>
         <input
           id="date"
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
+          onChange={(e) => setDate(new Date(e.target.value))}
+          value={date.toString()}
         />
       </div>
 

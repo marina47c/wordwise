@@ -14,6 +14,7 @@ import { CityType } from "../../utils/types";
 import { useEffect, useState } from "react";
 import { useGeolocation } from "../../hooks/useGeolocation";
 import Button from "../buttons/button/button";
+import { useUrlLocation } from "../../hooks/useUrlPosition";
 
 interface ChangeCenterProps {
   mapPosition: LatLngExpression;
@@ -26,18 +27,23 @@ function Map() {
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
-  const [searchParams] = useSearchParams();
-
+  const [mapLat, mapLng] = useUrlLocation();
   const [mapPosition, setMapPosition] = useState<LatLngExpression>([40, 10]);
-  // const [searchParams, setSearchParams] = useSearchParams();
-  const mapLat: number = Number(searchParams.get("lat"));
-  const mapLng: number = Number(searchParams.get("lng"));
 
   useEffect(() => {
     if (mapLat && mapLng) {
       setMapPosition([mapLat, mapLng]);
     }
   }, [mapLat, mapLng]);
+
+  useEffect(
+    function () {
+      if (geolocationPosition) {
+        setMapPosition([geolocationPosition.lat, geolocationPosition.lng]);
+      }
+    },
+    [geolocationPosition]
+  );
 
   return (
     <div className={styles.mapContainer}>
