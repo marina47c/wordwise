@@ -10,7 +10,7 @@
         "lat": 38.727881642324164,
         "lng": -9.140900099907554
       },
-      "id": 73930385
+      "id": "73930385"
     },
     {
       "cityName": "Madrid",
@@ -22,7 +22,7 @@
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
       },
-      "id": 17806751
+      "id": "17806751"
     },
     {
       "cityName": "Berlin",
@@ -34,7 +34,103 @@
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
       },
-      "id": 98443197
+      "id": "98443197"
+    },
+    {
+      "id": "b72e",
+      "cityName": "Paris",
+      "country": "France",
+      "date": "2025-03-10T18:54:14.552Z",
+      "emoji": "🇫🇷",
+      "notes": "",
+      "position": {
+        "lat": 48.83579746243093,
+        "lng": 2.39501953125
+      }
+    },
+    {
+      "id": "0e63",
+      "cityName": "Junglinster",
+      "country": "Luxembourg",
+      "date": "2025-03-10T18:59:59.257Z",
+      "emoji": "🇱🇺",
+      "notes": "",
+      "position": {
+        "lat": 49.710272582105695,
+        "lng": 6.240234375
+      }
+    },
+    {
+      "id": "c3fe",
+      "cityName": "Duault",
+      "country": "France",
+      "date": "2025-03-10T19:00:11.977Z",
+      "emoji": "🇫🇷",
+      "notes": "",
+      "position": {
+        "lat": 48.37084770238366,
+        "lng": -3.4716796875000004
+      }
+    },
+    {
+      "id": "bf10",
+      "cityName": "Nenagh",
+      "country": "Ireland",
+      "date": "2025-03-10T19:00:19.034Z",
+      "emoji": "🇮🇪",
+      "notes": "",
+      "position": {
+        "lat": 52.72298552457069,
+        "lng": -8.173828125000002
+      }
+    },
+    {
+      "id": "cbd9",
+      "cityName": "Villaurbana",
+      "country": "Italy",
+      "date": "2025-03-10T19:04:52.921Z",
+      "emoji": "🇮🇹",
+      "notes": "",
+      "position": {
+        "lat": 39.87601941962116,
+        "lng": 8.833007812500002
+      }
+    },
+    {
+      "id": "96ae",
+      "cityName": "Villasalto",
+      "country": "Italy",
+      "date": "2025-03-10T19:04:52.921Z",
+      "emoji": "🇮🇹",
+      "notes": "",
+      "position": {
+        "lat": 39.50404070558415,
+        "lng": 9.448242187500002
+      }
+    },
+    {
+      "id": "e2f7",
+      "cityName": "Montuiri",
+      "country": "Spain",
+      "date": "2025-03-10T19:09:50.972Z",
+      "emoji": "🇪🇸",
+      "notes": "",
+      "position": {
+        "lat": 39.554883059924016,
+        "lng": 3.0322265625000004
+      }
+    },
+    {
+      "id": "fdaf",
+      "cityName": "Bastelica",
+      "country": "France",
+      "date": "2025-03-10T19:10:13.601Z",
+      "emoji": "🇫🇷",
+      "notes": "",
+      "position": {
+        "lat": 41.96765920367816,
+        "lng": 9.030761718750002
+      }
     }
   ]
 }

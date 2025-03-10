@@ -8,7 +8,7 @@ export type CityType = {
   country: string;
   date: Date;
   emoji: string;
-  id: string;
+  id?: string;
   notes: string;
   position: PositionType;
 };

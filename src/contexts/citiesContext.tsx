@@ -14,6 +14,7 @@ interface CityContextType {
   isLoading: boolean;
   currentCity: CityType | null;
   getCity: (id: string) => void;
+  createCity: (newCity: CityType) => void;
 }
 
 interface CitiesProviderProps {
@@ -25,6 +26,7 @@ const CitiesContext = createContext<CityContextType>({
   isLoading: false,
   currentCity: null,
   getCity: () => {},
+  createCity: () => {},
 });
 
 function CitiesProvider({ children }: CitiesProviderProps) {
@@ -58,12 +60,33 @@ function CitiesProvider({ children }: CitiesProviderProps) {
     }
   }
 
+  async function createCity(newCity: CityType) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${BASE_API}/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      setCities((cities) => [...cities, data]);
+    } catch (ex) {
+      console.log(`Error while posting data. ${ex}`);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   useEffect(() => {
     getCities();
   }, []);
 
   return (
-    <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity }}>
+    <CitiesContext.Provider
+      value={{ cities, isLoading, currentCity, getCity, createCity }}
+    >
       {children}
     </CitiesContext.Provider>
   );
