@@ -14,14 +14,7 @@ import Spinner from "../spinner/Spinner";
 import { CityType } from "../../utils/types";
 import { useCities } from "../../contexts/citiesContext";
 import { useNavigate } from "react-router-dom";
-
-export function convertToEmoji(countryCode) {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
-}
+import { convertToEmoji } from "../../utils/helpers";
 
 const URL: string = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
@@ -122,7 +115,7 @@ function Form() {
         <DatePicker
           id="date"
           selected={date}
-          onChange={(date) => setDate(date as Date)}
+          onChange={(date: Date | null) => date && setDate(date)}
           dateFormat="dd/MM/yyyy"
         />
       </div>

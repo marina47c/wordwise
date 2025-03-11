@@ -25,42 +25,6 @@
       "id": "17806751"
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
-      "id": "b72e",
-      "cityName": "Paris",
-      "country": "France",
-      "date": "2025-03-10T18:54:14.552Z",
-      "emoji": "🇫🇷",
-      "notes": "",
-      "position": {
-        "lat": 48.83579746243093,
-        "lng": 2.39501953125
-      }
-    },
-    {
-      "id": "0e63",
-      "cityName": "Junglinster",
-      "country": "Luxembourg",
-      "date": "2025-03-10T18:59:59.257Z",
-      "emoji": "🇱🇺",
-      "notes": "",
-      "position": {
-        "lat": 49.710272582105695,
-        "lng": 6.240234375
-      }
-    },
-    {
       "id": "c3fe",
       "cityName": "Duault",
       "country": "France",
@@ -70,18 +34,6 @@
       "position": {
         "lat": 48.37084770238366,
         "lng": -3.4716796875000004
-      }
-    },
-    {
-      "id": "bf10",
-      "cityName": "Nenagh",
-      "country": "Ireland",
-      "date": "2025-03-10T19:00:19.034Z",
-      "emoji": "🇮🇪",
-      "notes": "",
-      "position": {
-        "lat": 52.72298552457069,
-        "lng": -8.173828125000002
       }
     },
     {

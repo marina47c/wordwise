@@ -19,8 +19,15 @@ function CityItem(props: CityItemProps) {
   const { city } = props;
   const { cityName, emoji, date, id, position } = city;
 
-  const { currentCity } = useCities();
+  const { currentCity, deleteCity } = useCities();
   const isActive: boolean = currentCity?.id === id;
+
+  function deleteItem(e: React.MouseEvent) {
+    e.preventDefault();
+    if (!city.id) return;
+
+    deleteCity(city.id);
+  }
 
   return (
     <li>
@@ -33,7 +40,9 @@ function CityItem(props: CityItemProps) {
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>({formatDate(date)})</time>
-        <button className={styles.deleteBtn}>&times;</button>
+        <button className={styles.deleteBtn} onClick={deleteItem}>
+          &times;
+        </button>
       </Link>
     </li>
   );
