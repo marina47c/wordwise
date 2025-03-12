@@ -49,18 +49,6 @@
       }
     },
     {
-      "id": "96ae",
-      "cityName": "Villasalto",
-      "country": "Italy",
-      "date": "2025-03-10T19:04:52.921Z",
-      "emoji": "🇮🇹",
-      "notes": "",
-      "position": {
-        "lat": 39.50404070558415,
-        "lng": 9.448242187500002
-      }
-    },
-    {
       "id": "e2f7",
       "cityName": "Montuiri",
       "country": "Spain",
@@ -82,6 +70,30 @@
       "position": {
         "lat": 41.96765920367816,
         "lng": 9.030761718750002
+      }
+    },
+    {
+      "id": "c8f5",
+      "cityName": "Arezzo",
+      "country": "Italy",
+      "date": "2025-03-12T15:07:36.936Z",
+      "emoji": "🇮🇹",
+      "notes": "",
+      "position": {
+        "lat": 43.50134257066591,
+        "lng": 11.77730411876251
+      }
+    },
+    {
+      "id": "546f",
+      "cityName": "Testour",
+      "country": "Tunisia",
+      "date": "2025-03-12T15:09:13.036Z",
+      "emoji": "🇹🇳",
+      "notes": "",
+      "position": {
+        "lat": 36.723716533824394,
+        "lng": 9.448255296856402
       }
     }
   ]
