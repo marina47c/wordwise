@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CityType } from "../../utils/types";
+import { CityType } from "../../utils/types/cityTypes";
 import styles from "./cityItem.module.css";
 import { useCities } from "../../contexts/citiesContext";
 

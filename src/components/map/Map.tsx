@@ -10,7 +10,7 @@ import {
 } from "react-leaflet";
 import { LatLngExpression, LeafletMouseEvent } from "leaflet";
 import { useCities } from "../../contexts/citiesContext";
-import { CityType } from "../../utils/types";
+import { CityType } from "../../utils/types/cityTypes";
 import { useEffect, useState } from "react";
 import { useGeolocation } from "../../hooks/useGeolocation";
 import Button from "../buttons/button/button";

@@ -1,5 +1,5 @@
 import { useCities } from "../../contexts/citiesContext";
-import { Country } from "../../utils/types";
+import { Country } from "../../utils/types/cityTypes";
 import CountryItem from "../countryItem/countryItem";
 import Message from "../message/Message";
 import Spinner from "../spinner/Spinner";

@@ -1,9 +1,9 @@
-import { Country } from "../../utils/types";
+import { Country } from "../../utils/types/cityTypes";
 import styles from "./CountryItem.module.css";
 
 type CountryItemProps = {
   country: Country;
-}
+};
 
 function CountryItem({ country }: CountryItemProps) {
   return (

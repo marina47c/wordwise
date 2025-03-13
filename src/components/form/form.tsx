@@ -11,7 +11,7 @@ import BackButton from "../buttons/backButton/backButton";
 import { useUrlLocation } from "../../hooks/useUrlPosition";
 import Message from "../message/Message";
 import Spinner from "../spinner/Spinner";
-import { CityType } from "../../utils/types";
+import { CityType } from "../../utils/types/cityTypes";
 import { useCities } from "../../contexts/citiesContext";
 import { useNavigate } from "react-router-dom";
 import { convertToEmoji } from "../../utils/helpers";

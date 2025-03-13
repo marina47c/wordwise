@@ -1,34 +1,8 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useReducer,
-} from "react";
-import { CityType } from "../utils/types";
+import { createContext, useContext, useEffect, useReducer } from "react";
+import { CityType } from "../utils/types/cityTypes";
+import { CitiesProviderProps, CityContextType, CityState } from "../utils/types/cityContextTypes";
 
 const BASE_API = "http://localhost:8000";
-
-interface CityContextType {
-  cities: CityType[];
-  isLoading: boolean;
-  currentCity: CityType | null;
-  error: string | null;
-  getCity: (id: string) => void;
-  createCity: (newCity: CityType) => void;
-  deleteCity: (cityId: string) => void;
-}
-
-interface CitiesProviderProps {
-  children?: ReactNode;
-}
-
-type CityState = {
-  cities: CityType[];
-  isLoading: boolean;
-  currentCity: CityType | null;
-  error: string | null;
-};
 
 const initialState: CityState = {
   cities: [],
@@ -83,10 +57,7 @@ const CitiesContext = createContext<CityContextType>({
 });
 
 function CitiesProvider({ children }: CitiesProviderProps) {
-  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(reducer, initialState);
 
   async function getCity(id: string) {
     if (Number(id) === currentCity.id) return;
