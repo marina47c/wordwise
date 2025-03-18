@@ -17,3 +17,10 @@ export type Country = {
   country: string;
   emoji: string;
 };
+
+export type User = {
+  name: string;
+  email: string;
+  password: string;
+  avatar: string;
+};

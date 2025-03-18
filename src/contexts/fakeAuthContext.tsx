@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer } from 'react';
-import { AuthAction, AuthState, AuthContextProps, AuthProviderProps } from '../utils/types/fakeAuthContextTypes';
+import { AuthAction, AuthState, AuthContextProps, AuthProviderProps } from '../utils/interfaces/IfakeAuthContext';
 
 const initialState: AuthState = {
   user: null,

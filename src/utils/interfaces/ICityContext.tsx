@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
-import { CityType } from "./cityTypes";
+import { ReactNode } from 'react';
+import { CityType } from '../types';
 
 export interface CitiesProviderProps {
   children?: ReactNode;
@@ -15,9 +15,9 @@ export interface CityContextType {
   deleteCity: (cityId: string) => void;
 }
 
-export type CityState = {
+export interface CityState {
   cities: CityType[];
   isLoading: boolean;
   currentCity: CityType | null;
   error: string | null;
-};
+}

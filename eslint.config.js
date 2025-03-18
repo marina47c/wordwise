@@ -15,7 +15,7 @@ export default tseslint.config(
       globals: globals.browser,
     },
     plugins: {
-      prettier: prettierPlugin,
+      // prettier: prettierPlugin,
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
     },

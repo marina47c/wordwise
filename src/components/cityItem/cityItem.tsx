@@ -1,18 +1,18 @@
-import { Link } from "react-router-dom";
-import { CityType } from "../../utils/types/cityTypes";
-import styles from "./cityItem.module.css";
-import { useCities } from "../../contexts/citiesContext";
+import { Link } from 'react-router-dom';
+import { CityType } from '../../utils/types';
+import styles from './cityItem.module.css';
+import { useCities } from '../../contexts/citiesContext';
 
 type CityItemProps = {
   city: CityType;
 };
 
 const formatDate = (date: Date) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
+  new Intl.DateTimeFormat('en', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    weekday: 'long',
   }).format(new Date(date));
 
 function CityItem(props: CityItemProps) {
@@ -33,9 +33,7 @@ function CityItem(props: CityItemProps) {
     <li>
       <Link
         to={`${id}?&lat=${position.lat}&lng=${position.lng}`}
-        className={`${styles.cityItem} ${
-          isActive ? styles["cityItem--active"] : ""
-        }`}
+        className={`${styles.cityItem} ${isActive ? styles['cityItem--active'] : ''}`}
       >
         <span className={styles.emoji}>{emoji}</span>
         <h3 className={styles.name}>{cityName}</h3>

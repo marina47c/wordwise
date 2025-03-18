@@ -1,27 +1,28 @@
 import { ReactNode } from 'react';
+import { User } from '../types';
 
-export type AuthProviderProps = {
+export interface AuthProviderProps {
   children: ReactNode;
-};
+}
 
 export interface AuthContextProps {
   login: (email: string, password: string) => void;
   logout: () => void;
-  user: string | null;
+  user: User | null;
   isAuthenticated: boolean;
 }
 
-export type AuthReducerProps = {
+export interface AuthReducerProps {
   state: AuthState;
   action: AuthAction;
-};
+}
 
-export type AuthState = {
-  user: string | null;
+export interface AuthState {
+  user: User | null;
   isAuthenticated: boolean;
-};
+}
 
-export type AuthAction = {
+export interface AuthAction {
   type: string;
   payload?: any;
-};
+}
